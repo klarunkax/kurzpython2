@@ -185,27 +185,34 @@ import itertools
 #CVIČENÍ
 import requests
 
-r = requests.get("https://raw.githubusercontent.com/pesikj/progr2-python/master/data/UberDrives.csv")
-open("UberDrives.csv", "wb").write(r.content)
-uber_drives = pandas.read_csv("UberDrives.csv")
-uber_drives = uber_drives.iloc[:-1]
-print(uber_drives)
-uber_drives.info()
+# r = requests.get("https://raw.githubusercontent.com/pesikj/progr2-python/master/data/UberDrives.csv")
+# open("UberDrives.csv", "wb").write(r.content)
+# uber_drives = pandas.read_csv("UberDrives.csv")
+# uber_drives = uber_drives.iloc[:-1]
+# print(uber_drives)
+# uber_drives.info()
 
 #Pro ujetou vzdálenost (sloupec MILES) urči průměr, medián, rozptyl a varianční rozpětí podle typu jízdy (sloupec CATEGORY).
-ber_drives_grouped = urban_drives.groupby(["CATEGORY"]).agg({"MILES":["mean","median","var","std","count","min","max"]})
-print(statistics.mean(uber_drives.groupby(["MILES"]))
-print(statistics.median(uber_drives["MILES"]))
-print(statistics.pvariance(uber_drives["MILES"]))
-print(max(uber_drives["MILES"]) - min(uber_drives["MILES"]))
+# uber_drives_grouped = uber_drives.groupby(["CATEGORY"]).agg({"MILES":["mean","median","var","std","count","min","max"]})
+# uber_drives_grouped = pandas.DataFrame(uber_drives_grouped)
+#??uber_drives_grouped["var_rozp"] = uber_drives_grouped["max"]- uber_drives_grouped["min"]
+#??print(max(uber_drives["MILES"]) - min(uber_drives["MILES"]))
+# print(uber_drives_grouped)
 
 #Vypočti délku jízdy (rozdíl časových údajů ve sloupcích END_DATE a START_DATE) v minutách nebo hodinách.
-uber_drives["START_DATE"] = pandas.to_datetime(uber_drives["START_DATE"])
-uber_drives["END_DATE"] = pandas.to_datetime(uber_drives["END_DATE"])
-uber_drives["DELKA_JIZDY"] = uber_drives["END_DATE"] - uber_drives["START_DATE"]
-#???uber_drives["DELKA_JIZDY"] = uber_drives["DELKA_JIZDY"].dt.minute
-print(uber_drives["DELKA_JIZDY"])
+# uber_drives["START_DATE"] = pandas.to_datetime(uber_drives["START_DATE"])
+# print(uber_drives)
+# uber_drives["END_DATE"] = pandas.to_datetime(uber_drives["END_DATE"])
+# uber_drives["DELKA_JIZDY"] = uber_drives["END_DATE"] - uber_drives["START_DATE"]
+# uber_drives["DELKA_JIZDY"] = uber_drives["DELKA_JIZDY"].dt.seconds
+# uber_drives["DELKA_JIZDY"] = uber_drives["DELKA_JIZDY"]/60
+# print(uber_drives["DELKA_JIZDY"])
 
 #Zjisti, jaká je korelace mezi délkou jízdy a vzdáleností.
-seaborn.jointplot("DELKA_JIZDY", "MILES", stock_data_three_df.pct_change(), kind='scatter', color='seagreen')
-#plt.show()
+# print(uber_drives[["DELKA_JIZDY","MILES"]].corr())
+
+numbers = list(range(1,47))
+letters = ["A","B","C","D","E","F"]
+places = list(itertools.product(letters, numbers))
+for item in places:
+    print(f"{item[0]}{item[1]}")
