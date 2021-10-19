@@ -4,6 +4,9 @@ import pandas
 r = requests.get("https://raw.githubusercontent.com/lutydlitatova/czechitas-datasets/main/datasets/lexikon-zvirat.csv")
 open("lexikon-zvirat.csv", "wb").write(r.content)
 
+
+#Lexikon zvířat 1
+
 lexikon = pandas.read_csv("lexikon-zvirat.csv", sep=";")
 lexikon = lexikon.dropna(how='all', axis='columns')
 lexikon = lexikon.dropna(how='all', axis='rows')
@@ -22,6 +25,8 @@ for radek in lexikon.itertuples():
         False
         neplatny_url = neplatny_url.append({"nazev": radek.title}, ignore_index=True)
 print(neplatny_url)
+
+#Lexikon zvířat 2
 
 def popisek(radek):
     popis_zvirete =  f"{radek[0]}  preferuje následující typ stravy  {radek[11]}"
