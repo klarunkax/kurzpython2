@@ -2,21 +2,21 @@ import requests
 import pandas
 from scipy.stats import mannwhitneyu
 # #1.PŠENICE
-# with requests.get("https://raw.githubusercontent.com/pesikj/progr2-python/master/data/psenice.csv") as r:
-#   open("psenice.csv", 'w', encoding="utf-8").write(r.text)
-#
-# psenice = pandas.read_csv("psenice.csv")
-# print(psenice.head())
-#
-# # Hypotézy budou následující:
-# # H0: průměry délky zrna jsou si rovné.
-# # H1: průměry délky zrna jsou různé (nejsou si rovné).
-#
-# x = psenice["Rosa"]
-# y = psenice["Canadian"]
-# print(x.shape)
-# print(y.shape)
-# print(mannwhitneyu(x, y))
+with requests.get("https://raw.githubusercontent.com/pesikj/progr2-python/master/data/psenice.csv") as r:
+  open("psenice.csv", 'w', encoding="utf-8").write(r.text)
+
+psenice = pandas.read_csv("psenice.csv")
+print(psenice.head())
+
+# Hypotézy budou následující:
+# H0: průměry délky zrna jsou si rovné.
+# H1: průměry délky zrna jsou různé (nejsou si rovné).
+
+x = psenice["Rosa"]
+y = psenice["Canadian"]
+print(x.shape)
+print(y.shape)
+print(mannwhitneyu(x, y))
 #
 # # Výsledek: p-value 3,52% < 5% = Nulovou hypotezu zamítame
 

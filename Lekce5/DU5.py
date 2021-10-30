@@ -23,11 +23,11 @@ print(crypto_prices.corr())
 #
 # #3.V tabulce najdi nejvyšší hodnotu korelace a korelaci nejblíže 0. Změny cen pro dvojice měn, které jsou nejvíce a nejméně korelované, si zobraz jako bodový graf
 # #sort.values()
-# seaborn.heatmap(crypto_prices.corr(), annot=True, fmt=".1f")
-# plt.show()
-#
-# seaborn.jointplot("Wrapped Bitcoin", "Litecoin", crypto_prices, kind='scatter', color='seagreen')
-# plt.show()
+seaborn.heatmap(crypto_prices.corr(), annot=True, fmt=".1f")
+plt.show()
+
+seaborn.jointplot("Wrapped Bitcoin", "Litecoin", crypto_prices, kind='scatter', color='seagreen')
+plt.show()
 
 ##POKRAČOVÁNÍ
 ##1. Z datového souboru si vyber jednu kryptoměnu a urči průměrné denní tempo růstu měny za sledované období. Můžeš využít funkci geometric_mean z modulu statistics. Vyber si sloupec se změnou ceny, kterou máš vypočítanou z předchozího cvičení (případně si jej dopočti), přičti k němu 1 (nemusíš dělit stem jako v lekci, hodnoty jsou jako desetinná čísla, nikoli jako procenta) a převeď jej na seznam pomocí metody .tolist().
