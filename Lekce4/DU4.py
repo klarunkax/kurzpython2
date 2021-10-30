@@ -69,6 +69,7 @@ print(crime_motor_vehicle_auto["DATE_OF_OCCURRENCE"])
 # #3.Ve kterém měsíci dochází nejčastěji ke krádeži auta?
 crime_motor_vehicle_auto["DATE_OF_OCCURRENCE"] = pandas.to_datetime(crime_motor_vehicle_auto["DATE_OF_OCCURRENCE"])
 crime_motor_vehicle_auto["month"] = crime_motor_vehicle_auto["DATE_OF_OCCURRENCE"].dt.month
-crime_motor_vehicle_auto["number"] = pandas.DataFrame(crime_motor_vehicle_auto.groupby(["month"])["number"].size())
+crime_motor_vehicle_auto = crime_motor_vehicle_auto.groupby(["month"]).size()
+crime_motor_vehicle_auto = pandas.DataFrame(crime_motor_vehicle_auto)
 print(crime_motor_vehicle_auto)
 #crime_motor_vehicle_auto.info()
